@@ -1,3 +1,5 @@
+## 1.10.9 - 2021-02-16
+- added positionOffset which allows a vertical offset for the flushbar
 ## 1.10.8 - 2020-12-12
 - Web support
 ## 1.10.7 - 2020-06-12
