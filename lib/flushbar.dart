@@ -43,6 +43,7 @@ class Flushbar<T> extends StatefulWidget {
         Color progressIndicatorBackgroundColor,
         Animation<Color> progressIndicatorValueColor,
         FlushbarPosition flushbarPosition = FlushbarPosition.BOTTOM,
+        double positionOffset = 0.0,
         FlushbarStyle flushbarStyle = FlushbarStyle.FLOATING,
         Curve forwardAnimationCurve = Curves.easeOutCirc,
         Curve reverseAnimationCurve = Curves.easeOutCirc,
@@ -80,6 +81,7 @@ class Flushbar<T> extends StatefulWidget {
             progressIndicatorBackgroundColor,
         this.progressIndicatorValueColor = progressIndicatorValueColor,
         this.flushbarPosition = flushbarPosition,
+        this.positionOffset = positionOffset,
         this.flushbarStyle = flushbarStyle,
         this.forwardAnimationCurve = forwardAnimationCurve,
         this.reverseAnimationCurve = reverseAnimationCurve,
@@ -182,6 +184,8 @@ class Flushbar<T> extends StatefulWidget {
   /// Flushbar can be based on [FlushbarPosition.TOP] or on [FlushbarPosition.BOTTOM] of your screen.
   /// [FlushbarPosition.BOTTOM] is the default.
   final FlushbarPosition flushbarPosition;
+
+  final double positionOffset;
 
   /// [FlushbarDismissDirection.VERTICAL] by default.
   /// Can also be [FlushbarDismissDirection.HORIZONTAL] in which case both left and right dismiss are allowed.
@@ -386,9 +390,8 @@ class _FlushbarState<K extends Object> extends State<Flushbar>
             : widget.backgroundColor,
         child: SafeArea(
           minimum: widget.flushbarPosition == FlushbarPosition.BOTTOM
-              ? EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom)
-              : EdgeInsets.only(top: MediaQuery.of(context).viewInsets.top),
+              ? EdgeInsets.only(bottom: (MediaQuery.of(context).padding.bottom + widget.positionOffset))
+              : EdgeInsets.only(top: (MediaQuery.of(context).padding.top) + widget.positionOffset),
           bottom: widget.flushbarPosition == FlushbarPosition.BOTTOM,
           top: widget.flushbarPosition == FlushbarPosition.TOP,
           left: false,

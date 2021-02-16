@@ -1,3 +1,5 @@
+## 1.10.8 - 2020-12-12
+- Web support
 ## 1.10.7 - 2020-06-12
 - Updated Example
 
