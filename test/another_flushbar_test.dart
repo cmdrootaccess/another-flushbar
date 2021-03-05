@@ -1,16 +1,14 @@
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:another_flushbar/flushbar.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-void main() {
 
+void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('Test Flushbar basic inicialization', () async{
+  test('Test Flushbar basic inicialization', () async {
     final flushbar = new Flushbar(message: "This is a test");
     expect(flushbar.title, null);
     expect(flushbar.message, "This is a test");
