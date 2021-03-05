@@ -45,8 +45,5 @@ void main() {
     expect(flushbar.progressIndicatorValueColor, null);
     expect(flushbar.routeBlur, null);
     expect(flushbar.routeColor, null);
-    expect(flushbar.isShowing(), false);
-    expect(flushbar.isDismissed(), false);
-    expect(await flushbar.dismiss(), null);
   });
 }
