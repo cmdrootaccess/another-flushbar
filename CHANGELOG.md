@@ -1,3 +1,6 @@
+## 1.10.13 - 2021-03-6
+- fix Expected value of SkDeletable, but got one of type Null
+- fix regression after merge generated_plugin_registrant.dart: Undefined name 'AnotherFlushbarPlugin
 ## 1.10.12 - 2021-03-6
 - added null safety support after merge from areille/null-safety merge
 ## 1.10.11 - 2021-02-22

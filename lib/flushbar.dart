@@ -419,11 +419,13 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
           future: _boxHeightCompleter.future,
           builder: (context, AsyncSnapshot<Size> snapshot) {
             if (snapshot.hasData) {
+              if(widget.barBlur == 0){ //fixes https://github.com/cmdrootaccess/another-flushbar/issues/8
+                return _emptyWidget;
+              }
               return ClipRRect(
                 borderRadius: BorderRadius.circular(widget.borderRadius),
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                      sigmaX: widget.barBlur, sigmaY: widget.barBlur),
+                  filter: ImageFilter.blur(sigmaX: widget.barBlur, sigmaY: widget.barBlur),
                   child: Container(
                     height: snapshot.data!.height,
                     width: snapshot.data!.width,
@@ -434,9 +436,8 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
                   ),
                 ),
               );
-            } else {
-              return _emptyWidget;
             }
+            return _emptyWidget;
           },
         ),
         flushbar,

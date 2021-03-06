@@ -1,6 +1,6 @@
 name: another_flushbar
 description: A flexible widget for user notification. Customize your text, button, duration, animations and much more. For Android devs, it is made to replace Snackbars and Toasts.
-version: 1.10.12
+version: 1.10.13
 homepage: https://github.com/cmdrootaccess/another-flushbar
 
 environment:
@@ -33,8 +33,8 @@ flutter:
       ios:
         pluginClass: AnotherFlushbarPlugin
       web:
-        pluginClass: AnotherFlushbarPlugin
-        fileName: flushbar.dart
+        pluginClass: AnotherFlushbarWeb
+        fileName: another_flushbar_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
