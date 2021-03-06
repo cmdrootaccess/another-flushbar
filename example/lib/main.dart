@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:another_flushbar/flushbar.dart';
 
 void main() {
@@ -50,8 +48,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -93,11 +89,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async{
+        onPressed: () async {
           Flushbar(
-            title:  "Hey Ninja",
-            message:  "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            duration:  Duration(seconds: 3),
+            title: "Hey Ninja",
+            message:
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            duration: Duration(seconds: 3),
           )..show(context);
         },
         tooltip: 'Increment',

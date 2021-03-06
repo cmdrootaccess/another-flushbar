@@ -6,11 +6,10 @@ import 'dart:async';
 import 'dart:html' as html show window;
 
 import 'package:flutter/services.dart';
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 /// A web implementation of the AnotherFlushbar plugin.
 class AnotherFlushbarWeb {
-  static void registerWith(Registrar registrar) {
+  static void registerWith(BinaryMessenger registrar) {
     final MethodChannel channel = MethodChannel(
       'another_flushbar',
       const StandardMethodCodec(),
@@ -28,11 +27,11 @@ class AnotherFlushbarWeb {
     switch (call.method) {
       case 'getPlatformVersion':
         return getPlatformVersion();
-        break;
       default:
         throw PlatformException(
           code: 'Unimplemented',
-          details: 'another_flushbar for web doesn\'t implement \'${call.method}\'',
+          details:
+              'another_flushbar for web doesn\'t implement \'${call.method}\'',
         );
     }
   }
