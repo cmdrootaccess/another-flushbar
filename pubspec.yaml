@@ -33,8 +33,8 @@ flutter:
       ios:
         pluginClass: AnotherFlushbarPlugin
       web:
-        pluginClass: AnotherFlushbarPlugin
-        fileName: flushbar.dart
+        pluginClass: AnotherFlushbarWeb
+        fileName: another_flushbar_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
