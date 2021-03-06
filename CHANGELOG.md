@@ -1,3 +1,9 @@
+## 1.10.12 - 2021-03-6
+- added null safety support after merge from areille/null-safety merge
+## 1.10.11 - 2021-02-22
+- fix [WEB] Undefined name 'AnotherFlushbarPlugin' in generated_plugin_registrant.dart
+## 1.10.10 - 2021-02-16
+- FlushbarHelper.createAction() "button" parameter takes a FlatButton which is now deprecated in favor of TextButton
 ## 1.10.9 - 2021-02-16
 - added positionOffset which allows a vertical offset for the flushbar
 ## 1.10.8 - 2020-12-12
