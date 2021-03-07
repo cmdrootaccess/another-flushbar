@@ -24,7 +24,7 @@ class Flushbar<T> extends StatefulWidget {
       double? maxWidth,
       EdgeInsets margin = const EdgeInsets.all(0.0),
       EdgeInsets padding = const EdgeInsets.all(16),
-      double borderRadius = 0.0,
+      BorderRadius? borderRadius,
       Color? borderColor,
       double borderWidth = 1.0,
       Color backgroundColor = const Color(0xFF303030),
@@ -169,11 +169,10 @@ class Flushbar<T> extends StatefulWidget {
   /// The default follows material design guide line
   final EdgeInsets padding;
 
-  /// Adds a radius to all corners of Flushbar. Best combined with [margin].
+  /// Adds a radius to corners specified of Flushbar. Best combined with [margin].
   /// I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor].
-  final double borderRadius;
-
-  /// Adds a border to every side of Flushbar
+  final BorderRadius? borderRadius;
+  // Adds a border to every side of Flushbar
   /// I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor].
   final Color? borderColor;
 
@@ -419,19 +418,21 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
           future: _boxHeightCompleter.future,
           builder: (context, AsyncSnapshot<Size> snapshot) {
             if (snapshot.hasData) {
-              if(widget.barBlur == 0){ //fixes https://github.com/cmdrootaccess/another-flushbar/issues/8
+              if (widget.barBlur == 0) {
+                //fixes https://github.com/cmdrootaccess/another-flushbar/issues/8
                 return _emptyWidget;
               }
               return ClipRRect(
-                borderRadius: BorderRadius.circular(widget.borderRadius),
+                borderRadius: widget.borderRadius,
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: widget.barBlur, sigmaY: widget.barBlur),
+                  filter: ImageFilter.blur(
+                      sigmaX: widget.barBlur, sigmaY: widget.barBlur),
                   child: Container(
                     height: snapshot.data!.height,
                     width: snapshot.data!.width,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(widget.borderRadius),
+                      borderRadius: widget.borderRadius,
                     ),
                   ),
                 ),
@@ -455,7 +456,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         color: widget.backgroundColor,
         gradient: widget.backgroundGradient,
         boxShadow: widget.boxShadows,
-        borderRadius: BorderRadius.circular(widget.borderRadius),
+        borderRadius: widget.borderRadius,
         border: widget.borderColor != null
             ? Border.all(color: widget.borderColor!, width: widget.borderWidth)
             : null,
@@ -482,7 +483,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         color: widget.backgroundColor,
         gradient: widget.backgroundGradient,
         boxShadow: widget.boxShadows,
-        borderRadius: BorderRadius.circular(widget.borderRadius),
+        borderRadius: widget.borderRadius,
         border: widget.borderColor != null
             ? Border.all(color: widget.borderColor!, width: widget.borderWidth)
             : null,
