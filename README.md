@@ -20,7 +20,7 @@ shouldIconPulse | An option to animate the icon (if present). Defaults to true.
 maxWidth | Used to limit Flushbar width (usually on large screens)
 margin | Adds a custom margin to Flushbar
 padding | Adds a custom padding to Flushbar. The default follows material design guide line
-borderRadius | Adds a radius to all corners of Flushbar. Best combined with [margin]. I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor]
+borderRadius | Adds a radius to specified corners of Flushbar. Best combined with [margin]. I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor]
 borderColor | Adds a border to every side of Flushbar. I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor]
 borderWidth | Changes the width of the border if [borderColor] is specified
 backgroundColor | Flushbar background color. Will be ignored if [backgroundGradient] is not null.
@@ -173,7 +173,7 @@ You can give it some padding and a border radius. Works best with `FlushbarStyle
 ```dart
 Flushbar(
   margin: EdgeInsets.all(8),
-  borderRadius: 8,
+  borderRadius: BorderRadius.circular(8),
 );
 
 ```
