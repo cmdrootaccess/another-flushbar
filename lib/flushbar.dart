@@ -108,7 +108,7 @@ class Flushbar<T> extends StatefulWidget {
   /// The title displayed to the user
   final String? title;
 
-  /// The title size displayed to the user
+  /// The title text size displayed to the user
   final double? titleSize;
 
   /// Color title displayed to the user ? default is black
@@ -117,7 +117,7 @@ class Flushbar<T> extends StatefulWidget {
   /// The message displayed to the user.
   final String? message;
 
-  /// The message displayed to the user.
+  /// The message text size displayed to the user.
   final double? messageSize;
 
   /// Color message displayed to the user ? default is black
