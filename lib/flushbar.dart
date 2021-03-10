@@ -16,7 +16,11 @@ class Flushbar<T> extends StatefulWidget {
   Flushbar(
       {Key? key,
       String? title,
+      Color? titleColor,
+      double? titleSize,
       String? message,
+      double? messageSize,
+      Color? messageColor,
       Widget? titleText,
       Widget? messageText,
       Widget? icon,
@@ -54,7 +58,11 @@ class Flushbar<T> extends StatefulWidget {
       Color? routeColor,
       Form? userInputForm})
       : this.title = title,
+        this.titleSize = titleSize,
+        this.titleColor = titleColor,
         this.message = message,
+        this.messageSize = messageSize,
+        this.messageColor = messageColor,
         this.titleText = titleText,
         this.messageText = messageText,
         this.icon = icon,
@@ -100,8 +108,20 @@ class Flushbar<T> extends StatefulWidget {
   /// The title displayed to the user
   final String? title;
 
+  /// The title text size displayed to the user
+  final double? titleSize;
+
+  /// Color title displayed to the user ? default is black
+  final Color? titleColor;
+
   /// The message displayed to the user.
   final String? message;
+
+  /// The message text size displayed to the user.
+  final double? messageSize;
+
+  /// Color message displayed to the user ? default is black
+  final Color? messageColor;
 
   /// Replaces [title]. Although this accepts a [Widget], it is meant to receive [Text] or [RichText]
   final Widget? titleText;
@@ -726,8 +746,8 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         : Text(
             widget.title ?? "",
             style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.white,
+                fontSize: widget.titleSize ?? 16.0,
+                color: widget.titleColor ?? Colors.white,
                 fontWeight: FontWeight.bold),
           );
   }
@@ -735,7 +755,9 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
   Text _getDefaultNotificationText() {
     return Text(
       widget.message ?? "",
-      style: TextStyle(fontSize: 14.0, color: Colors.white),
+      style: TextStyle(
+          fontSize: widget.messageSize ?? 14.0,
+          color: widget.messageColor ?? Colors.white),
     );
   }
 

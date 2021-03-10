@@ -12,7 +12,11 @@ Since customization requires a lot of properties, here is a quick cheatsheet:
 Property | What does it do
 -------- | ---------------
 title    | The title displayed to the user
+titleColor    | The title color displayed to the user
+titleSize    | The title size displayed to the user
 message  | The message displayed to the user.
+messageColor  | The message color displayed to the user.
+messageSize  | The message size displayed to the user.
 titleText | Replaces [title]. Although this accepts a [widget], **it is meant to receive [Text] or [RichText]**
 messageText | Replaces [message]. Although this accepts a [widget], **it is meant to receive [Text] or  [RichText]**
 icon | You can use any widget here, but I recommend [Icon] or [Image] as indication of what kind of message you are displaying. Other widgets may break the layout
@@ -112,6 +116,7 @@ Here is how customized things can get.
 ```dart
 Flushbar(
       title: "Hey Ninja",
+      titleColor: Colors.white,
       message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
       flushbarPosition: FlushbarPosition.TOP,
       flushbarStyle: FlushbarStyle.FLOATING,
