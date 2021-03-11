@@ -5,8 +5,8 @@ class FlushbarHelper {
   /// Get a success notification flushbar.
   static Flushbar createSuccess(
       {required String message,
-        String? title,
-        Duration duration = const Duration(seconds: 3)}) {
+      String? title,
+      Duration duration = const Duration(seconds: 3)}) {
     return Flushbar(
       title: title,
       message: message,
@@ -22,8 +22,8 @@ class FlushbarHelper {
   /// Get an information notification flushbar
   static Flushbar createInformation(
       {required String message,
-        String? title,
-        Duration duration = const Duration(seconds: 3)}) {
+      String? title,
+      Duration duration = const Duration(seconds: 3)}) {
     return Flushbar(
       title: title,
       message: message,
@@ -40,8 +40,8 @@ class FlushbarHelper {
   /// Get a error notification flushbar
   static Flushbar createError(
       {required String message,
-        String? title,
-        Duration duration = const Duration(seconds: 3)}) {
+      String? title,
+      Duration duration = const Duration(seconds: 3)}) {
     return Flushbar(
       title: title,
       message: message,
@@ -58,9 +58,9 @@ class FlushbarHelper {
   /// Get a flushbar that can receive a user action through a button.
   static Flushbar createAction(
       {required String message,
-        required Widget button,
-        String? title,
-        Duration duration = const Duration(seconds: 3)}) {
+      required Widget button,
+      String? title,
+      Duration duration = const Duration(seconds: 3)}) {
     return Flushbar(
       title: title,
       message: message,
@@ -72,11 +72,11 @@ class FlushbarHelper {
   // Get a flushbar that shows the progress of a async computation.
   static Flushbar createLoading(
       {required String message,
-        required LinearProgressIndicator linearProgressIndicator,
-        String? title,
-        Duration duration = const Duration(seconds: 3),
-        AnimationController? progressIndicatorController,
-        Color? progressIndicatorBackgroundColor}) {
+      required LinearProgressIndicator linearProgressIndicator,
+      String? title,
+      Duration duration = const Duration(seconds: 3),
+      AnimationController? progressIndicatorController,
+      Color? progressIndicatorBackgroundColor}) {
     return Flushbar(
       title: title,
       message: message,

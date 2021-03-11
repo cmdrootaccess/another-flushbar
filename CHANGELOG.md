@@ -1,3 +1,6 @@
+## 1.10.14 - 2021-03-10
+- add color and size parameter
+- Let the user choose which corner they want to apply a radius on.
 ## 1.10.13 - 2021-03-6
 - fix Expected value of SkDeletable, but got one of type Null
 - fix regression after merge generated_plugin_registrant.dart: Undefined name 'AnotherFlushbarPlugin
