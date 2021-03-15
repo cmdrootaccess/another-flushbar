@@ -5,13 +5,11 @@ homepage: https://github.com/cmdrootaccess/another-flushbar
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
-  flutter: ">=1.20.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_web_plugins:
-    sdk: flutter
+    
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -21,20 +19,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  # This section identifies this Flutter project as a plugin project.
-  # The 'pluginClass' and Android 'package' identifiers should not ordinarily
-  # be modified. They are used by the tooling to maintain consistency when
-  # adding or updating assets for this project.
-  plugin:
-    platforms:
-      android:
-        package: com.hamidwakili.another_flushbar
-        pluginClass: AnotherFlushbarPlugin
-      ios:
-        pluginClass: AnotherFlushbarPlugin
-      web:
-        pluginClass: AnotherFlushbarWeb
-        fileName: another_flushbar_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
