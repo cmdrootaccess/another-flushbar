@@ -97,12 +97,13 @@ class Flushbar<T> extends StatefulWidget {
         routeBlur = routeBlur,
         routeColor = routeColor,
         userInputForm = userInputForm,
+        onStatusChanged = onStatusChanged,
         super(key: key) {
     onStatusChanged = onStatusChanged ?? (status) {};
   }
 
   /// A callback for you to listen to the different Flushbar status
-  late final FlushbarStatusCallback? onStatusChanged;
+  final FlushbarStatusCallback? onStatusChanged;
 
   /// The title displayed to the user
   final String? title;
