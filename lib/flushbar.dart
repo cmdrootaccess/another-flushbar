@@ -84,8 +84,7 @@ class Flushbar<T> extends StatefulWidget {
         dismissDirection = dismissDirection,
         showProgressIndicator = showProgressIndicator,
         progressIndicatorController = progressIndicatorController,
-        progressIndicatorBackgroundColor =
-            progressIndicatorBackgroundColor,
+        progressIndicatorBackgroundColor = progressIndicatorBackgroundColor,
         progressIndicatorValueColor = progressIndicatorValueColor,
         flushbarPosition = flushbarPosition,
         positionOffset = positionOffset,
@@ -749,13 +748,14 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
   }
 
   Widget? _getTitleText() {
-    return widget.titleText ?? Text(
-            widget.title ?? '',
-            style: TextStyle(
-                fontSize: widget.titleSize ?? 16.0,
-                color: widget.titleColor ?? Colors.white,
-                fontWeight: FontWeight.bold),
-          );
+    return widget.titleText ??
+        Text(
+          widget.title ?? '',
+          style: TextStyle(
+              fontSize: widget.titleSize ?? 16.0,
+              color: widget.titleColor ?? Colors.white,
+              fontWeight: FontWeight.bold),
+        );
   }
 
   Text _getDefaultNotificationText() {
