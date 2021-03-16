@@ -1,3 +1,9 @@
+## 1.10.17 - 2021-03-16
+- Fix nullpointer on onStatusChanged & add pedantic analysis and formatting
+## 1.10.16 - 2021-03-16
+- Remove unnecessary platform specific code
+## 1.10.15 - 2021-03-11
+- Add isAppearing and isHiding methods
 ## 1.10.14 - 2021-03-10
 - add color and size parameter
 - Let the user choose which corner they want to apply a radius on.
