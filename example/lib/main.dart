@@ -90,12 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          Flushbar(
-            title: "Hey Ninja",
+          await Flushbar(
+            title: 'Hey Ninja',
             message:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
             duration: Duration(seconds: 3),
-          )..show(context);
+          ).show(context);
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
