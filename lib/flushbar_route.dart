@@ -25,14 +25,14 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
     RouteSettings? settings,
   })  : _builder = Builder(builder: (BuildContext innerContext) {
           return GestureDetector(
-            child: flushbar,
             onTap:
                 flushbar.onTap != null ? () => flushbar.onTap!(flushbar) : null,
+            child: flushbar,
           );
         }),
         _onStatusChanged = flushbar.onStatusChanged,
         super(settings: settings) {
-    _configureAlignment(this.flushbar.flushbarPosition);
+    _configureAlignment(flushbar.flushbarPosition);
   }
 
   void _configureAlignment(FlushbarPosition flushbarPosition) {
@@ -57,7 +57,7 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
 
   @override
   Iterable<OverlayEntry> createOverlayEntries() {
-    final List<OverlayEntry> overlays = [];
+    final overlays = <OverlayEntry>[];
 
     if (flushbar.blockBackgroundInteraction) {
       overlays.add(
@@ -77,15 +77,15 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
       OverlayEntry(
           builder: (BuildContext context) {
             final Widget annotatedChild = Semantics(
+              focused: false,
+              container: true,
+              explicitChildNodes: true,
               child: AlignTransition(
                 alignment: _animation!,
                 child: flushbar.isDismissible
                     ? _getDismissibleFlushbar(_builder)
                     : _getFlushbar(),
               ),
-              focused: false,
-              container: true,
-              explicitChildNodes: true,
             );
             return annotatedChild;
           },
@@ -150,7 +150,7 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
   }
 
   /// This string is a workaround until Dismissible supports a returning item
-  String dismissibleKeyGen = "";
+  String dismissibleKeyGen = '';
 
   Widget _getDismissibleFlushbar(Widget child) {
     return Dismissible(
@@ -165,7 +165,7 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
       },
       key: Key(dismissibleKeyGen),
       onDismissed: (_) {
-        dismissibleKeyGen += "1";
+        dismissibleKeyGen += '1';
         _cancelTimer();
         _wasDismissedBySwipe = true;
 
@@ -346,8 +346,9 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
         '$runtimeType.didReplace called before calling install() or after calling dispose().');
     assert(!_transitionCompleter.isCompleted,
         'Cannot reuse a $runtimeType after disposing it.');
-    if (oldRoute is FlushbarRoute)
+    if (oldRoute is FlushbarRoute) {
       _controller!.value = oldRoute._controller!.value;
+    }
     _animation!.addStatusListener(_handleStatusChanged);
     super.didReplace(oldRoute);
   }
@@ -381,9 +382,9 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
         _timer!.cancel();
       }
       _timer = Timer(flushbar.duration!, () {
-        if (this.isCurrent) {
+        if (isCurrent) {
           navigator!.pop();
-        } else if (this.isActive) {
+        } else if (isActive) {
           navigator!.removeRoute(this);
         }
       });
