@@ -9,9 +9,9 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test('Test Flushbar basic inicialization', () async {
-    final flushbar = new Flushbar(message: "This is a test");
+    final flushbar = Flushbar(message: 'This is a test');
     expect(flushbar.title, null);
-    expect(flushbar.message, "This is a test");
+    expect(flushbar.message, 'This is a test');
     expect(flushbar.duration, null);
     expect(flushbar.backgroundColor, Color(0xFF303030));
     expect(flushbar.flushbarPosition, FlushbarPosition.BOTTOM);

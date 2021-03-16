@@ -6,10 +6,10 @@ import 'package:flutter/scheduler.dart';
 
 import 'flushbar_route.dart' as route;
 
-const String FLUSHBAR_ROUTE_NAME = "/flushbarRoute";
+const String FLUSHBAR_ROUTE_NAME = '/flushbarRoute';
 
-typedef void FlushbarStatusCallback(FlushbarStatus? status);
-typedef void OnTap(Flushbar flushbar);
+typedef FlushbarStatusCallback = void Function(FlushbarStatus? status);
+typedef OnTap = void Function(Flushbar flushbar);
 
 /// A highly customizable widget so you can notify your user when you fell like he needs a beautiful explanation.
 class Flushbar<T> extends StatefulWidget {
@@ -57,53 +57,53 @@ class Flushbar<T> extends StatefulWidget {
       double? routeBlur,
       Color? routeColor,
       Form? userInputForm})
-      : this.title = title,
-        this.titleSize = titleSize,
-        this.titleColor = titleColor,
-        this.message = message,
-        this.messageSize = messageSize,
-        this.messageColor = messageColor,
-        this.titleText = titleText,
-        this.messageText = messageText,
-        this.icon = icon,
-        this.shouldIconPulse = shouldIconPulse,
-        this.maxWidth = maxWidth,
-        this.margin = margin,
-        this.padding = padding,
-        this.borderRadius = borderRadius,
-        this.borderColor = borderColor,
-        this.borderWidth = borderWidth,
-        this.backgroundColor = backgroundColor,
-        this.leftBarIndicatorColor = leftBarIndicatorColor,
-        this.boxShadows = boxShadows,
-        this.backgroundGradient = backgroundGradient,
-        this.mainButton = mainButton,
-        this.onTap = onTap,
-        this.duration = duration,
-        this.isDismissible = isDismissible,
-        this.dismissDirection = dismissDirection,
-        this.showProgressIndicator = showProgressIndicator,
-        this.progressIndicatorController = progressIndicatorController,
-        this.progressIndicatorBackgroundColor =
-            progressIndicatorBackgroundColor,
-        this.progressIndicatorValueColor = progressIndicatorValueColor,
-        this.flushbarPosition = flushbarPosition,
-        this.positionOffset = positionOffset,
-        this.flushbarStyle = flushbarStyle,
-        this.forwardAnimationCurve = forwardAnimationCurve,
-        this.reverseAnimationCurve = reverseAnimationCurve,
-        this.animationDuration = animationDuration,
-        this.barBlur = barBlur,
-        this.blockBackgroundInteraction = blockBackgroundInteraction,
-        this.routeBlur = routeBlur,
-        this.routeColor = routeColor,
-        this.userInputForm = userInputForm,
+      : title = title,
+        titleSize = titleSize,
+        titleColor = titleColor,
+        message = message,
+        messageSize = messageSize,
+        messageColor = messageColor,
+        titleText = titleText,
+        messageText = messageText,
+        icon = icon,
+        shouldIconPulse = shouldIconPulse,
+        maxWidth = maxWidth,
+        margin = margin,
+        padding = padding,
+        borderRadius = borderRadius,
+        borderColor = borderColor,
+        borderWidth = borderWidth,
+        backgroundColor = backgroundColor,
+        leftBarIndicatorColor = leftBarIndicatorColor,
+        boxShadows = boxShadows,
+        backgroundGradient = backgroundGradient,
+        mainButton = mainButton,
+        onTap = onTap,
+        duration = duration,
+        isDismissible = isDismissible,
+        dismissDirection = dismissDirection,
+        showProgressIndicator = showProgressIndicator,
+        progressIndicatorController = progressIndicatorController,
+        progressIndicatorBackgroundColor = progressIndicatorBackgroundColor,
+        progressIndicatorValueColor = progressIndicatorValueColor,
+        flushbarPosition = flushbarPosition,
+        positionOffset = positionOffset,
+        flushbarStyle = flushbarStyle,
+        forwardAnimationCurve = forwardAnimationCurve,
+        reverseAnimationCurve = reverseAnimationCurve,
+        animationDuration = animationDuration,
+        barBlur = barBlur,
+        blockBackgroundInteraction = blockBackgroundInteraction,
+        routeBlur = routeBlur,
+        routeColor = routeColor,
+        userInputForm = userInputForm,
+        onStatusChanged = onStatusChanged,
         super(key: key) {
-    this.onStatusChanged = onStatusChanged ?? (status) {};
+    onStatusChanged = onStatusChanged ?? (status) {};
   }
 
   /// A callback for you to listen to the different Flushbar status
-  late final FlushbarStatusCallback? onStatusChanged;
+  final FlushbarStatusCallback? onStatusChanged;
 
   /// The title displayed to the user
   final String? title;
@@ -332,7 +332,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         widget.userInputForm != null ||
             ((widget.message != null && widget.message!.isNotEmpty) ||
                 widget.messageText != null),
-        "A message is mandatory if you are not using userInputForm. Set either a message or messageText");
+        'A message is mandatory if you are not using userInputForm. Set either a message or messageText');
 
     _isTitlePresent = (widget.title != null || widget.titleText != null);
     _messageTopMargin = _isTitlePresent ? 6.0 : widget.padding.top;
@@ -368,7 +368,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         final keyContext = _backgroundBoxKey!.currentContext;
 
         if (keyContext != null) {
-          final RenderBox box = keyContext.findRenderObject() as RenderBox;
+          final box = keyContext.findRenderObject() as RenderBox;
           _boxHeightCompleter.complete(box.size);
         }
       },
@@ -493,9 +493,9 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         padding: const EdgeInsets.only(
             left: 8.0, right: 8.0, bottom: 8.0, top: 16.0),
         child: FocusScope(
-          child: widget.userInputForm!,
           node: _focusNode,
           autofocus: true,
+          child: widget.userInputForm!,
         ),
       ),
     );
@@ -554,7 +554,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
 
   List<Widget> _getAppropriateRowLayout() {
     double buttonRightPadding;
-    double iconPadding = 0;
+    var iconPadding = 0.0;
     if (widget.padding.right - 12 < 0) {
       buttonRightPadding = 4;
     } else {
@@ -749,20 +749,19 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
   }
 
   Widget? _getTitleText() {
-    return widget.titleText != null
-        ? widget.titleText
-        : Text(
-            widget.title ?? "",
-            style: TextStyle(
-                fontSize: widget.titleSize ?? 16.0,
-                color: widget.titleColor ?? Colors.white,
-                fontWeight: FontWeight.bold),
-          );
+    return widget.titleText ??
+        Text(
+          widget.title ?? '',
+          style: TextStyle(
+              fontSize: widget.titleSize ?? 16.0,
+              color: widget.titleColor ?? Colors.white,
+              fontWeight: FontWeight.bold),
+        );
   }
 
   Text _getDefaultNotificationText() {
     return Text(
-      widget.message ?? "",
+      widget.message ?? '',
       style: TextStyle(
           fontSize: widget.messageSize ?? 14.0,
           color: widget.messageColor ?? Colors.white),
