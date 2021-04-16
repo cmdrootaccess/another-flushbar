@@ -318,7 +318,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
   FocusScopeNode? _focusNode;
   late FocusAttachment _focusAttachment;
   late Completer<Size> _boxHeightCompleter;
-  late Function _progressListener;
+  
   CurvedAnimation? _progressAnimation;
 
   @override
@@ -352,9 +352,6 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
   @override
   void dispose() {
     _fadeController?.dispose();
-
-    widget.progressIndicatorController
-        ?.removeListener(_progressListener as void Function());
     widget.progressIndicatorController?.dispose();
 
     _focusAttachment.detach();
