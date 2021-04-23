@@ -1,3 +1,7 @@
+## 1.10.19 - 2021-04-23
+- Fix Flushbar is hidden behind keyboard
+## 1.10.18 - 2021-04-16
+- Fix LateInitializationError: Field '_progressListener' has not been initialized
 ## 1.10.17 - 2021-03-16
 - Fix nullpointer on onStatusChanged & add pedantic analysis and formatting
 ## 1.10.16 - 2021-03-16

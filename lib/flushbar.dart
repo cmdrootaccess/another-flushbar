@@ -402,6 +402,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
     _fadeController!.forward();
   }
 
+  //TODO : review EdgeInsets
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -410,14 +411,17 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         color: widget.flushbarStyle == FlushbarStyle.FLOATING
             ? Colors.transparent
             : widget.backgroundColor,
-        child: SafeArea(
+        child: SafeArea( 
           minimum: widget.flushbarPosition == FlushbarPosition.BOTTOM
               ? EdgeInsets.only(
-                  bottom: (MediaQuery.of(context).padding.bottom +
-                      widget.positionOffset))
-              : EdgeInsets.only(
-                  top: (MediaQuery.of(context).padding.top) +
-                      widget.positionOffset),
+              bottom: MediaQuery.of(context).viewInsets.bottom)
+              : EdgeInsets.only(top: MediaQuery.of(context).viewInsets.top),
+              // ? EdgeInsets.only(
+              //     bottom: (MediaQuery.of(context).padding.bottom +
+              //         widget.positionOffset))
+              // : EdgeInsets.only(
+              //     top: (MediaQuery.of(context).padding.top) +
+              //         widget.positionOffset),
           bottom: widget.flushbarPosition == FlushbarPosition.BOTTOM,
           top: widget.flushbarPosition == FlushbarPosition.TOP,
           left: false,
