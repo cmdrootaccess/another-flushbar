@@ -1,3 +1,5 @@
+## 1.10.20 - 2021-04-24
+- If route was never initialized, do nothing
 ## 1.10.19 - 2021-04-23
 - Fix Flushbar is hidden behind keyboard
 ## 1.10.18 - 2021-04-16
