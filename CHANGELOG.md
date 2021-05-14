@@ -1,3 +1,5 @@
+## 1.10.21 - 2021-05-14
+- add radius to leftBarIndicatorColor
 ## 1.10.20 - 2021-04-24
 - If route was never initialized, do nothing
 ## 1.10.19 - 2021-04-23

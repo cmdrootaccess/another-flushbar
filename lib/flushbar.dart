@@ -734,9 +734,14 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         builder: (BuildContext buildContext, AsyncSnapshot<Size> snapshot) {
           if (snapshot.hasData) {
             return Container(
-              color: widget.leftBarIndicatorColor,
-              width: 5.0,
+              width: 8.0,
               height: snapshot.data!.height,
+              decoration: BoxDecoration(
+                borderRadius: widget.borderRadius == null ? null : BorderRadius.only(
+                    topLeft: widget.borderRadius!.topLeft,
+                    bottomLeft: widget.borderRadius!.bottomLeft),
+                color: widget.leftBarIndicatorColor,
+              ),
             );
           } else {
             return _emptyWidget;
