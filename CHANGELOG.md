@@ -1,3 +1,5 @@
+## 1.10.22 - 2021-05-14
+- check if flushbar is null
 ## 1.10.21 - 2021-05-14
 - add radius to leftBarIndicatorColor
 ## 1.10.20 - 2021-04-24

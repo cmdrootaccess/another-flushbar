@@ -98,6 +98,7 @@ class Flushbar<T> extends StatefulWidget {
         routeColor = routeColor,
         userInputForm = userInputForm,
         onStatusChanged = onStatusChanged,
+        this.flushbarRoute = null, // Please dont init this
         super(key: key) {
     onStatusChanged = onStatusChanged ?? (status) {};
   }
@@ -246,35 +247,35 @@ class Flushbar<T> extends StatefulWidget {
   /// A [TextFormField] in case you want a simple user input. Every other widget is ignored if this is not null.
   final Form? userInputForm;
 
-  late final route.FlushbarRoute<T?>? _flushbarRoute;
+  route.FlushbarRoute<T?>? flushbarRoute;
 
   /// Show the flushbar. Kicks in [FlushbarStatus.IS_APPEARING] state followed by [FlushbarStatus.SHOWING]
   Future<T?> show(BuildContext context) async {
-    _flushbarRoute = route.showFlushbar<T>(
+    flushbarRoute = route.showFlushbar<T>(
       context: context,
       flushbar: this,
-    ) as route.FlushbarRoute<T?>?;
+    ) as route.FlushbarRoute<T?>;
 
     return await Navigator.of(context, rootNavigator: false)
-        .push(_flushbarRoute as Route<T>);
+        .push(flushbarRoute as Route<T>);
   }
 
   /// Dismisses the flushbar causing is to return a future containing [result].
   /// When this future finishes, it is guaranteed that Flushbar was dismissed.
   Future<T?> dismiss([T? result]) async {
     // If route was never initialized, do nothing
-    if (_flushbarRoute == null) {
+    if (flushbarRoute == null) {
       return null;
     }
 
-    if (_flushbarRoute!.isCurrent) {
-      _flushbarRoute!.navigator!.pop(result);
-      return _flushbarRoute!.completed;
-    } else if (_flushbarRoute!.isActive) {
+    if (flushbarRoute!.isCurrent) {
+      flushbarRoute!.navigator!.pop(result);
+      return flushbarRoute!.completed;
+    } else if (flushbarRoute!.isActive) {
       // removeRoute is called every time you dismiss a Flushbar that is not the top route.
       // It will not animate back and listeners will not detect FlushbarStatus.IS_HIDING or FlushbarStatus.DISMISSED
       // To avoid this, always make sure that Flushbar is the top route when it is being dismissed
-      _flushbarRoute!.navigator!.removeRoute(_flushbarRoute!);
+      flushbarRoute!.navigator!.removeRoute(flushbarRoute!);
     }
 
     return null;
@@ -282,32 +283,32 @@ class Flushbar<T> extends StatefulWidget {
 
   /// Checks if the flushbar is visible
   bool isShowing() {
-    if(_flushbarRoute == null){
+    if(flushbarRoute == null){
       return false;
     }
-    return _flushbarRoute?.currentStatus == FlushbarStatus.SHOWING;
+    return flushbarRoute!.currentStatus == FlushbarStatus.SHOWING;
   }
 
   /// Checks if the flushbar is dismissed
   bool isDismissed() {
-    if(_flushbarRoute == null){
+    if(flushbarRoute == null){
       return false;
     }
-    return _flushbarRoute?.currentStatus == FlushbarStatus.DISMISSED;
+    return flushbarRoute!.currentStatus == FlushbarStatus.DISMISSED;
   }
 
   bool isAppearing() {
-    if(_flushbarRoute == null){
+    if(flushbarRoute == null){
       return false;
     }
-    return _flushbarRoute?.currentStatus == FlushbarStatus.IS_APPEARING;
+    return flushbarRoute!.currentStatus == FlushbarStatus.IS_APPEARING;
   }
 
   bool isHiding() {
-    if(_flushbarRoute == null){
+    if(flushbarRoute == null){
       return false;
     }
-    return _flushbarRoute?.currentStatus == FlushbarStatus.IS_HIDING;
+    return flushbarRoute!.currentStatus == FlushbarStatus.IS_HIDING;
   }
 
   @override
