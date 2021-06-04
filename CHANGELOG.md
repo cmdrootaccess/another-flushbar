@@ -1,3 +1,5 @@
+## 1.10.23 - 2021-06-4
+- Prevents hiding flushbar when user clicks the back button.
 ## 1.10.22 - 2021-05-14
 - check if flushbar is null
 ## 1.10.21 - 2021-05-14
