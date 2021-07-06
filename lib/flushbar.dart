@@ -56,7 +56,9 @@ class Flushbar<T> extends StatefulWidget {
       bool blockBackgroundInteraction = false,
       double? routeBlur,
       Color? routeColor,
-      Form? userInputForm})
+      Form? userInputForm,
+      Offset? endOffset,
+      })
       : title = title,
         titleSize = titleSize,
         titleColor = titleColor,
@@ -98,6 +100,7 @@ class Flushbar<T> extends StatefulWidget {
         routeColor = routeColor,
         userInputForm = userInputForm,
         onStatusChanged = onStatusChanged,
+        endOffset = endOffset,
         this.flushbarRoute = null, // Please dont init this
         super(key: key) {
     onStatusChanged = onStatusChanged ?? (status) {};
@@ -246,6 +249,10 @@ class Flushbar<T> extends StatefulWidget {
 
   /// A [TextFormField] in case you want a simple user input. Every other widget is ignored if this is not null.
   final Form? userInputForm;
+
+  /// Offset to be added to the end Flushbar position.
+  /// Intended to replace [margin] when you need items below Flushbar to be accessible
+  final Offset? endOffset;
 
   route.FlushbarRoute<T?>? flushbarRoute;
 

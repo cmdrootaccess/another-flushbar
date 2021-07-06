@@ -40,13 +40,13 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
       case FlushbarPosition.TOP:
         {
           _initialAlignment = Alignment(-1.0, -2.0);
-          _endAlignment = Alignment(-1.0, -1.0);
+          _endAlignment = flushbar.endOffset != null ? Alignment(-1.0, -1.0) + Alignment(flushbar.endOffset!.dx, flushbar.endOffset!.dy) : Alignment(-1.0, -1.0);
           break;
         }
       case FlushbarPosition.BOTTOM:
         {
           _initialAlignment = Alignment(-1.0, 2.0);
-          _endAlignment = Alignment(-1.0, 1.0);
+          _endAlignment = flushbar.endOffset != null ? Alignment(-1.0, 1.0) + Alignment(flushbar.endOffset!.dx, flushbar.endOffset!.dy) : Alignment(-1.0, 1.0);
           break;
         }
     }
