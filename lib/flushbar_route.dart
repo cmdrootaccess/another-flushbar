@@ -72,8 +72,9 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
       overlays.add(
         OverlayEntry(
             builder: (BuildContext context) {
-              return GestureDetector(
-                onTap: flushbar.isDismissible ? () => flushbar.dismiss() : null,
+              return Listener(
+                onPointerDown:
+                    flushbar.isDismissible ? (_) => flushbar.dismiss() : null,
                 child: _createBackgroundOverlay(),
               );
             },
