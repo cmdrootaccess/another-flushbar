@@ -29,6 +29,7 @@ class Flushbar<T> extends StatefulWidget {
       EdgeInsets margin = const EdgeInsets.all(0.0),
       EdgeInsets padding = const EdgeInsets.all(16),
       BorderRadius? borderRadius,
+      TextDirection textDirection = TextDirection.ltr,
       Color? borderColor,
       double borderWidth = 1.0,
       Color backgroundColor = const Color(0xFF303030),
@@ -73,6 +74,7 @@ class Flushbar<T> extends StatefulWidget {
         margin = margin,
         padding = padding,
         borderRadius = borderRadius,
+        textDirection = textDirection,
         borderColor = borderColor,
         borderWidth = borderWidth,
         backgroundColor = backgroundColor,
@@ -196,6 +198,11 @@ class Flushbar<T> extends StatefulWidget {
   /// Adds a radius to corners specified of Flushbar. Best combined with [margin].
   /// I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor].
   final BorderRadius? borderRadius;
+
+  /// [TextDirection.ltr] by default
+  /// added to support rtl languages
+  final TextDirection textDirection;
+
   // Adds a border to every side of Flushbar
   /// I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor].
   final Color? borderColor;
@@ -744,10 +751,16 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
             return Container(
               width: 8.0,
               height: snapshot.data!.height,
-              decoration: BoxDecoration(
-                borderRadius: widget.borderRadius == null ? null : BorderRadius.only(
-                    topLeft: widget.borderRadius!.topLeft,
-                    bottomLeft: widget.borderRadius!.bottomLeft),
+              decoration:  BoxDecoration(
+                borderRadius: widget.borderRadius == null
+                    ? null
+                    : widget.textDirection == TextDirection.ltr
+                        ? BorderRadius.only(
+                            topLeft: widget.borderRadius!.topLeft,
+                            bottomLeft: widget.borderRadius!.bottomLeft)
+                        : BorderRadius.only(
+                            topRight: widget.borderRadius!.topRight,
+                            bottomRight: widget.borderRadius!.bottomRight),
                 color: widget.leftBarIndicatorColor,
               ),
             );
