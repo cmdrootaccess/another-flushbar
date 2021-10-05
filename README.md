@@ -25,6 +25,7 @@ maxWidth | Used to limit Flushbar width (usually on large screens)
 margin | Adds a custom margin to Flushbar
 padding | Adds a custom padding to Flushbar. The default follows material design guide line
 borderRadius | Adds a radius to specified corners of Flushbar. Best combined with [margin]. I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor]
+textDirection | [TextDirection.ltr] by default. [Directionality.of(context)] to know whether it would be [TextDirection.ltr] or [TextDirection.rtl]
 borderColor | Adds a border to every side of Flushbar. I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor]
 borderWidth | Changes the width of the border if [borderColor] is specified
 backgroundColor | Flushbar background color. Will be ignored if [backgroundGradient] is not null.
@@ -475,6 +476,30 @@ flush = Flushbar<List<String>>(
 This example tries to mimic the [Material Design style guide](https://material.io/design/components/text-fields.html#anatomy)
 
 ![Bar input](readme_resources/input_bar.png)
+
+### RTL text
+
+![RTL Text](readme_resources/rtl_bar.png)
+
+You can add `textDirection: Directionality.of(context)` for rtl.
+
+```dart
+ Flushbar(
+   message: "لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد",
+   icon: Icon(
+   Icons.info_outline,
+   size: 28.0,
+   color: Colors.blue[300],
+             ),
+   margin: EdgeInsets.all(6.0),
+   flushbarStyle: FlushbarStyle.FLOATING,
+   flushbarPosition: FlushbarPosition.TOP,
+   textDirection: Directionality.of(context),
+   borderRadius: BorderRadius.circular(12),
+   duration: Duration(seconds: 3),
+   leftBarIndicatorColor: Colors.blue[300],
+ )..show(context);
+```
 
 ## Flushbar Helper
 
