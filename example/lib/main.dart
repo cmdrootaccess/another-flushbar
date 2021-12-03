@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
 import 'package:another_flushbar/flushbar.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
