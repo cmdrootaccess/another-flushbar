@@ -1,21 +1,15 @@
 PODS:
-  - another_flushbar (0.0.1):
-    - Flutter
   - Flutter (1.0.0)
 
 DEPENDENCIES:
-  - another_flushbar (from `.symlinks/plugins/another_flushbar/ios`)
   - Flutter (from `Flutter`)
 
 EXTERNAL SOURCES:
-  another_flushbar:
-    :path: ".symlinks/plugins/another_flushbar/ios"
   Flutter:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  another_flushbar: 3bb0a50768cc547ba9dd82cbb92129bf5ca7440c
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 

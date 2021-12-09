@@ -7,7 +7,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.10.23"
+    version: "1.10.27"
   async:
     dependency: transitive
     description:
