@@ -1,3 +1,7 @@
+## 1.10.29 - 2022-17-05
+- merged flutter v3 #66 from X-SLAYER/main
+## 1.10.28 - 2021-12-09
+- revert updated screenshots
 ## 1.10.27 - 2021-12-09
 - merge updates
 ## 1.10.26 - 2021-11-24
