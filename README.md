@@ -23,6 +23,7 @@ icon | You can use any widget here, but I recommend [Icon] or [Image] as indicat
 shouldIconPulse | An option to animate the icon (if present). Defaults to true.
 maxWidth | Used to limit Flushbar width (usually on large screens)
 margin | Adds a custom margin to Flushbar
+alignment | Align the  Flushbar on big screens
 padding | Adds a custom padding to Flushbar. The default follows material design guide line
 borderRadius | Adds a radius to specified corners of Flushbar. Best combined with [margin]. I do not recommend using it with [showProgressIndicator] or [leftBarIndicatorColor]
 textDirection | [TextDirection.ltr] by default. [Directionality.of(context)] to know whether it would be [TextDirection.ltr] or [TextDirection.rtl]
