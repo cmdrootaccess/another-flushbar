@@ -356,7 +356,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
   }
 
   void _configureLeftBarFuture() {
-    SchedulerBinding.instance.addPostFrameCallback(
+    SchedulerBinding.instance?.addPostFrameCallback(
       (_) {
         final keyContext = _backgroundBoxKey!.currentContext;
 
