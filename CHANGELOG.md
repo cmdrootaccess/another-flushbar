@@ -1,3 +1,5 @@
+## 1.11.29 - 2022-09-08
+- update license to MIT
 ## 1.10.29 - 2022-17-05
 - merged flutter v3 #66 from X-SLAYER/main
 ## 1.10.28 - 2021-12-09

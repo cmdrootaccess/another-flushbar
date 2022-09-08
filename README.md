@@ -171,7 +171,7 @@ Flushbar(flushbarStyle: FlushbarStyle.GROUNDED)
 ```
 Floating Style            |  Grounded Style
 :------------------------------------------------------:|:-------------------------------------------------------:
-![Floating Style](https://github.com/cmdrootaccess/another-flushbar/raw/main/readme_resources/floating_style.png)  |  ![Grounded Style](readme_resources/grounded_style.png)
+![Floating Style](https://github.com/cmdrootaccess/another-flushbar/raw/main/readme_resources/floating_style.png)  |  ![Grounded Style](https://github.com/cmdrootaccess/another-flushbar/raw/main/readme_resources/grounded_style.png)
 
 ### Padding and Border Radius
 You can give it some padding and a border radius. Works best with `FlushbarStyle.FLOATING`
