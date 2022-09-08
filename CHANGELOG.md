@@ -1,3 +1,5 @@
+## 1.12.29 - 2022-09-08
+- flutter format code
 ## 1.11.29 - 2022-09-08
 - update license to MIT
 ## 1.10.29 - 2022-17-05

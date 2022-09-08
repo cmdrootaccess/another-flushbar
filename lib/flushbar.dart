@@ -400,10 +400,12 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
             : widget.backgroundColor,
         child: SafeArea(
           minimum: widget.flushbarPosition == FlushbarPosition.BOTTOM
-          ? EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom + widget.positionOffset)
-          : EdgeInsets.only(
-              top: MediaQuery.of(context).viewInsets.top + widget.positionOffset),
+              ? EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom +
+                      widget.positionOffset)
+              : EdgeInsets.only(
+                  top: MediaQuery.of(context).viewInsets.top +
+                      widget.positionOffset),
           bottom: widget.flushbarPosition == FlushbarPosition.BOTTOM,
           top: widget.flushbarPosition == FlushbarPosition.TOP,
           left: false,
