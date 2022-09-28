@@ -15,55 +15,58 @@ typedef OnTap = void Function(Flushbar flushbar);
 /// A highly customizable widget so you can notify your user when you fell like he needs a beautiful explanation.
 // ignore: must_be_immutable
 class Flushbar<T> extends StatefulWidget {
-  Flushbar(
-      {Key? key,
-      this.title,
-      this.titleColor,
-      this.titleSize,
-      this.message,
-      this.messageSize,
-      this.messageColor,
-      this.titleText,
-      this.messageText,
-      this.icon,
-      this.shouldIconPulse = true,
-      this.maxWidth,
-      this.margin = const EdgeInsets.all(0.0),
-      this.padding = const EdgeInsets.all(16),
-      this.borderRadius,
-      this.textDirection = TextDirection.ltr,
-      this.borderColor,
-      this.borderWidth = 1.0,
-      this.backgroundColor = const Color(0xFF303030),
-      this.leftBarIndicatorColor,
-      this.boxShadows,
-      this.backgroundGradient,
-      this.mainButton,
-      this.onTap,
-      this.duration,
-      this.isDismissible = true,
-      this.dismissDirection = FlushbarDismissDirection.VERTICAL,
-      this.showProgressIndicator = false,
-      this.progressIndicatorController,
-      this.progressIndicatorBackgroundColor,
-      this.progressIndicatorValueColor,
-      this.flushbarPosition = FlushbarPosition.BOTTOM,
-      this.positionOffset = 0.0,
-      this.flushbarStyle = FlushbarStyle.FLOATING,
-      this.forwardAnimationCurve = Curves.easeOutCirc,
-      this.reverseAnimationCurve = Curves.easeOutCirc,
-      this.animationDuration = const Duration(seconds: 1),
-      FlushbarStatusCallback? onStatusChanged,
-      this.barBlur = 0.0,
-      this.blockBackgroundInteraction = false,
-      this.routeBlur,
-      this.routeColor,
-      this.userInputForm,
-      this.endOffset,
-      this.flushbarRoute // Please dont init this
-      })
-      // ignore: prefer_initializing_formals
-      : onStatusChanged = onStatusChanged,
+  Flushbar({
+    Key? key,
+    this.title,
+    this.titleColor,
+    this.titleSize,
+    this.message,
+    this.messageSize,
+    this.messageColor,
+    this.titleText,
+    this.messageText,
+    this.icon,
+    this.shouldIconPulse = true,
+    this.maxWidth,
+    this.margin = const EdgeInsets.all(0.0),
+    this.padding = const EdgeInsets.all(16),
+    this.borderRadius,
+    this.textDirection = TextDirection.ltr,
+    this.borderColor,
+    this.borderWidth = 1.0,
+    this.backgroundColor = const Color(0xFF303030),
+    this.leftBarIndicatorColor,
+    this.boxShadows,
+    this.backgroundGradient,
+    this.mainButton,
+    this.onTap,
+    this.duration,
+    this.isDismissible = true,
+    this.dismissDirection = FlushbarDismissDirection.VERTICAL,
+    this.showProgressIndicator = false,
+    this.progressIndicatorController,
+    this.progressIndicatorBackgroundColor,
+    this.progressIndicatorValueColor,
+    this.flushbarPosition = FlushbarPosition.BOTTOM,
+    this.positionOffset = 0.0,
+    this.flushbarStyle = FlushbarStyle.FLOATING,
+    this.forwardAnimationCurve = Curves.easeOutCirc,
+    this.reverseAnimationCurve = Curves.easeOutCirc,
+    this.animationDuration = const Duration(seconds: 1),
+    FlushbarStatusCallback? onStatusChanged,
+    this.barBlur = 0.0,
+    this.blockBackgroundInteraction = false,
+    this.routeBlur,
+    this.routeColor,
+    this.userInputForm,
+    this.endOffset,
+    this.flushbarRoute, // Please dont init this
+    this.titleStyle = const TextStyle(
+        fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
+    this.messageStyle = const TextStyle(fontSize: 14.0, color: Colors.white),
+  })  
+  // ignore: prefer_initializing_formals
+  : onStatusChanged = onStatusChanged,
         super(key: key) {
     onStatusChanged = onStatusChanged ?? (status) {};
   }
@@ -74,6 +77,9 @@ class Flushbar<T> extends StatefulWidget {
   /// The title displayed to the user
   final String? title;
 
+  /// Style for title
+  final TextStyle? titleStyle;
+
   /// The title text size displayed to the user
   final double? titleSize;
 
@@ -82,6 +88,9 @@ class Flushbar<T> extends StatefulWidget {
 
   /// The message displayed to the user.
   final String? message;
+
+  /// Style for message
+  final TextStyle? messageStyle;
 
   /// The message text size displayed to the user.
   final double? messageSize;
@@ -347,7 +356,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
   }
 
   void _configureLeftBarFuture() {
-    SchedulerBinding.instance.addPostFrameCallback(
+    SchedulerBinding.instance?.addPostFrameCallback(
       (_) {
         final keyContext = _backgroundBoxKey!.currentContext;
 
@@ -748,19 +757,14 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
     return widget.titleText ??
         Text(
           widget.title ?? '',
-          style: TextStyle(
-              fontSize: widget.titleSize ?? 16.0,
-              color: widget.titleColor ?? Colors.white,
-              fontWeight: FontWeight.bold),
+          style: widget.titleStyle,
         );
   }
 
   Text _getDefaultNotificationText() {
     return Text(
       widget.message ?? '',
-      style: TextStyle(
-          fontSize: widget.messageSize ?? 14.0,
-          color: widget.messageColor ?? Colors.white),
+      style: widget.messageStyle,
     );
   }
 
