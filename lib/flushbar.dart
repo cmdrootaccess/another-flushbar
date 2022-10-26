@@ -18,6 +18,7 @@ class Flushbar<T> extends StatefulWidget {
   Flushbar(
       {Key? key,
       this.title,
+      this.safeArea = true,
       this.titleColor,
       this.titleSize,
       this.message,
@@ -221,6 +222,10 @@ class Flushbar<T> extends StatefulWidget {
   /// Intended to replace [margin] when you need items below Flushbar to be accessible
   final Offset? endOffset;
 
+  /// Choose if the flushbar must be displayed inside a safeArea
+  /// For custom safeArea you can use margin instead
+  final bool safeArea;
+
   route.FlushbarRoute<T?>? flushbarRoute;
 
   /// Show the flushbar. Kicks in [FlushbarStatus.IS_APPEARING] state followed by [FlushbarStatus.SHOWING]
@@ -398,18 +403,8 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         color: widget.flushbarStyle == FlushbarStyle.FLOATING
             ? Colors.transparent
             : widget.backgroundColor,
-        child: SafeArea(
-          minimum: widget.flushbarPosition == FlushbarPosition.BOTTOM
-              ? EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom +
-                      widget.positionOffset)
-              : EdgeInsets.only(
-                  top: MediaQuery.of(context).viewInsets.top +
-                      widget.positionOffset),
-          bottom: widget.flushbarPosition == FlushbarPosition.BOTTOM,
-          top: widget.flushbarPosition == FlushbarPosition.TOP,
-          left: false,
-          right: false,
+        child: GestureDetector(
+          onTap: () => widget.onTap?.call(widget),
           child: _getFlushbar(),
         ),
       ),
