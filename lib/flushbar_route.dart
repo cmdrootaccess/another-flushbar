@@ -8,7 +8,7 @@ import 'flushbar.dart';
 class FlushbarRoute<T> extends OverlayRoute<T> {
   final Flushbar flushbar;
   final Builder _builder;
-  final Completer<T> _transitionCompleter = Completer<T>();
+  final Completer<T?> _transitionCompleter = Completer<T?>();
   final FlushbarStatusCallback? _onStatusChanged;
 
   Animation<double>? _filterBlurAnimation;
@@ -52,7 +52,7 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
     }
   }
 
-  Future<T> get completed => _transitionCompleter.future;
+  Future<T?> get completed => _transitionCompleter.future;
   bool get opaque => false;
 
   @override
