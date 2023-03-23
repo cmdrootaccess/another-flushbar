@@ -434,7 +434,9 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
     assert(!_transitionCompleter.isCompleted,
         'Cannot dispose a $runtimeType twice.');
     _controller?.dispose();
-    _transitionCompleter.complete(_result);
+    if (_result != null) {
+      _transitionCompleter.complete(_result);
+    }
     super.dispose();
   }
 
