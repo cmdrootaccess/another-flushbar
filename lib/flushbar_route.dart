@@ -182,7 +182,7 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
       key: Key(dismissibleKeyGen),
       onDismissed: (_) {
         dismissibleKeyGen += '1';
-        _cancelTimer();
+        _timer?.cancel();
         _wasDismissedBySwipe = true;
 
         if (isCurrent) {
@@ -377,7 +377,7 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
         'Cannot reuse a $runtimeType after disposing it.');
 
     _result = result;
-    _cancelTimer();
+    _timer?.cancel();
 
     if (_wasDismissedBySwipe) {
       Timer(const Duration(milliseconds: 200), () {
@@ -411,12 +411,6 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
     }
   }
 
-  void _cancelTimer() {
-    if (_timer != null && _timer!.isActive) {
-      _timer!.cancel();
-    }
-  }
-
   /// Whether this route can perform a transition to the given route.
   ///
   /// Subclasses can override this method to restrict the set of routes they
@@ -433,6 +427,7 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
   void dispose() {
     assert(!_transitionCompleter.isCompleted,
         'Cannot dispose a $runtimeType twice.');
+    _timer?.cancel();
     _controller?.dispose();
     _transitionCompleter.complete(_result);
     _timer?.cancel();
