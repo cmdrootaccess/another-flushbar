@@ -1,3 +1,5 @@
+## 1.12.29-dev.1 - 2023-09-05
+- fix type 'BorderRadius?' can't be assigned to the parameter type 'BorderRadiusGeometry' (https://github.com/cmdrootaccess/another-flushbar/issues/106)
 ## 1.12.29 - 2022-09-08
 - flutter format code
 ## 1.11.29 - 2022-09-08
