@@ -1,10 +1,10 @@
 name: another_flushbar
 description: A flexible widget for user notification. Customize your text, button, duration, animations and much more. For Android devs, it is made to replace Snackbars and Toasts.
-version: 1.12.29-dev.1
+version: 1.12.30-dev.1
 homepage: https://github.com/cmdrootaccess/another-flushbar
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.12.0 <4.0.0'
 
 dependencies:
   flutter:
