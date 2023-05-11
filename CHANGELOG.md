@@ -1,3 +1,5 @@
+## 1.12.30 - 2023-11-05
+- bump version
 ## 1.12.30-dev.1 - 2023-09-05
 - fix type 'BorderRadius?' can't be assigned to the parameter type 'BorderRadiusGeometry' (https://github.com/cmdrootaccess/another-flushbar/issues/106)
 ## 1.12.29 - 2022-09-08
