@@ -63,7 +63,9 @@ class FlushbarRoute<T> extends OverlayRoute<T> {
 
   @override
   Future<RoutePopDisposition> willPop() {
-    if (!flushbar.isDismissible) {
+    if (!flushbar.isDismissible &&
+        ((flushbar.duration == null) ||
+            (flushbar.duration != null && _timer?.isActive == true))) {
       return Future.value(RoutePopDisposition.doNotPop);
     }
 
