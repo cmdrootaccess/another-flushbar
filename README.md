@@ -1,5 +1,7 @@
 # another_flushbar
 
+[![Pub](https://img.shields.io/pub/v/another_flushbar.svg?style=popout)](https://pub.dartlang.org/packages/another-flushbar)
+
 Use this package if you need more customization when notifying your user. For Android developers, it is made to substitute
 toasts and snackbars. IOS developers, I don't know what you use there, but you will like it.
 
