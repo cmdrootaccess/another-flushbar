@@ -229,7 +229,7 @@ class Flushbar<T> extends StatefulWidget {
   route.FlushbarRoute<T?>? flushbarRoute;
 
   /// Show the flushbar. Kicks in [FlushbarStatus.IS_APPEARING] state followed by [FlushbarStatus.SHOWING]
-  Future<T?> show(BuildContext context, {bool useRootNavigator: false}) async {
+  Future<T?> show(BuildContext context, {bool useRootNavigator = false}) async {
     flushbarRoute = route.showFlushbar<T>(
       context: context,
       flushbar: this,
