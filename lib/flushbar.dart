@@ -61,6 +61,7 @@ class Flushbar<T> extends StatefulWidget {
       this.routeColor,
       this.userInputForm,
       this.endOffset,
+      this.titleTopSpacing = 6.0,
       this.flushbarRoute // Please dont init this
       })
       // ignore: prefer_initializing_formals
@@ -226,6 +227,10 @@ class Flushbar<T> extends StatefulWidget {
   /// For custom safeArea you can use margin instead
   final bool safeArea;
 
+  /// The spacing between [title] or [titleText] and [message] or [messageText]
+  /// This spacing is applied if [title] or [titleText] provided
+  final double titleTopSpacing;
+
   route.FlushbarRoute<T?>? flushbarRoute;
 
   /// Show the flushbar. Kicks in [FlushbarStatus.IS_APPEARING] state followed by [FlushbarStatus.SHOWING]
@@ -327,7 +332,8 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>>
         'A message is mandatory if you are not using userInputForm. Set either a message or messageText');
 
     _isTitlePresent = (widget.title != null || widget.titleText != null);
-    _messageTopMargin = _isTitlePresent ? 6.0 : widget.padding.top;
+    _messageTopMargin =
+        _isTitlePresent ? widget.titleTopSpacing : widget.padding.top;
 
     _configureLeftBarFuture();
     _configureProgressIndicatorAnimation();
