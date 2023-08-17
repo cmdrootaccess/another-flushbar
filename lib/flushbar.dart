@@ -49,7 +49,6 @@ class Flushbar<T> extends StatefulWidget {
       this.progressIndicatorBackgroundColor,
       this.progressIndicatorValueColor,
       this.flushbarPosition = FlushbarPosition.BOTTOM,
-      this.positionOffset = 0.0,
       this.flushbarStyle = FlushbarStyle.FLOATING,
       this.forwardAnimationCurve = Curves.easeOutCirc,
       this.reverseAnimationCurve = Curves.easeOutCirc,
@@ -174,8 +173,6 @@ class Flushbar<T> extends StatefulWidget {
   /// Flushbar can be based on [FlushbarPosition.TOP] or on [FlushbarPosition.BOTTOM] of your screen.
   /// [FlushbarPosition.BOTTOM] is the default.
   final FlushbarPosition flushbarPosition;
-
-  final double positionOffset;
 
   /// [FlushbarDismissDirection.VERTICAL] by default.
   /// Can also be [FlushbarDismissDirection.HORIZONTAL] in which case both left and right dismiss are allowed.
