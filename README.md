@@ -53,7 +53,7 @@ blockBackgroundInteraction | Determines if user can interact with the screen beh
 routeBlur | Default is 0.0. If different than 0.0, creates a blurred overlay that prevents the user from interacting with the screen. The greater the value, the greater the blur. It does not take effect if [blockBackgroundInteraction] is false
 routeColor | Default is [Colors.transparent]. Only takes effect if [routeBlur] > 0.0. Make sure you use a color with transparency e.g. `Colors.grey[600].withOpacity(0.2)`. It does not take effect if [blockBackgroundInteraction] is false
 userInputForm | A [TextFormField] in case you want a simple user input. Every other widget is ignored if this is not null.
-onStatusChanged | a callback for you to listen to the different Flushbar status
+titleTopSpacing | The spacing between [title] or [titleText] and [message] or [messageText] This spacing is applied if [title] or [titleText] provided
 
 #### Quick tip
 
