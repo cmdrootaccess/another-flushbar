@@ -335,7 +335,6 @@ class Flushbar<T> extends StatefulWidget {
     Form? userInputForm,
     Offset? endOffset,
     bool? safeArea,
-    route.FlushbarRoute<T?>? flushbarRoute,
     void Function(FlushbarStatus?)? onStatusChanged,
     TextDirection? textDirection,
   }) {
@@ -382,7 +381,6 @@ class Flushbar<T> extends StatefulWidget {
       userInputForm: userInputForm ?? this.userInputForm,
       endOffset: endOffset ?? this.endOffset,
       safeArea: safeArea ?? this.safeArea,
-      flushbarRoute: flushbarRoute ?? this.flushbarRoute,
       onStatusChanged: onStatusChanged ?? this.onStatusChanged,
       textDirection: textDirection ?? this.textDirection,
     );
