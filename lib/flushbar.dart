@@ -119,7 +119,7 @@ class Flushbar<T> extends StatefulWidget {
   final bool shouldIconPulse;
 
   /// Use if you need an action from the user. [TextButton] is recommended here
-  final Widget? mainButton;
+  final Widget Function(Flushbar<T>)? mainButton;
 
   /// A callback that registers the user's click anywhere. An alternative to [mainButton]
   final OnTap? onTap;
@@ -291,100 +291,6 @@ class Flushbar<T> extends StatefulWidget {
 
   @override
   State createState() => _FlushbarState<T?>();
-
-  Flushbar<T> copyWith({
-    String? title,
-    Color? titleColor,
-    double? titleSize,
-    String? message,
-    Widget? titleText,
-    Widget? messageText,
-    Color? messageColor,
-    double? messageSize,
-    Widget? icon,
-    bool? shouldIconPulse,
-    Widget? mainButton,
-    OnTap? onTap,
-    Duration? duration,
-    bool? isDismissible,
-    double? maxWidth,
-    EdgeInsets? margin,
-    EdgeInsets? padding,
-    BorderRadius? borderRadius,
-    Color? borderColor,
-    double? borderWidth,
-    Color? backgroundColor,
-    Color? leftBarIndicatorColor,
-    List<BoxShadow>? boxShadows,
-    Gradient? backgroundGradient,
-    bool? showProgressIndicator,
-    AnimationController? progressIndicatorController,
-    Color? progressIndicatorBackgroundColor,
-    Animation<Color>? progressIndicatorValueColor,
-    FlushbarPosition? flushbarPosition,
-    double? positionOffset,
-    FlushbarDismissDirection? dismissDirection,
-    FlushbarStyle? flushbarStyle,
-    Curve? forwardAnimationCurve,
-    Curve? reverseAnimationCurve,
-    Duration? animationDuration,
-    double? barBlur,
-    bool? blockBackgroundInteraction,
-    double? routeBlur,
-    Color? routeColor,
-    Form? userInputForm,
-    Offset? endOffset,
-    bool? safeArea,
-    void Function(FlushbarStatus?)? onStatusChanged,
-    TextDirection? textDirection,
-  }) {
-    return Flushbar(
-      title: title ?? this.title,
-      titleColor: titleColor ?? this.titleColor,
-      titleSize: titleSize ?? this.titleSize,
-      message: message ?? this.message,
-      messageColor: messageColor ?? this.messageColor,
-      messageSize: messageSize ?? this.messageSize,
-      titleText: titleText ?? this.titleText,
-      messageText: messageText ?? this.messageText,
-      icon: icon ?? this.icon,
-      shouldIconPulse: shouldIconPulse ?? this.shouldIconPulse,
-      mainButton: mainButton ?? this.mainButton,
-      onTap: onTap ?? this.onTap,
-      duration: duration ?? this.duration,
-      isDismissible: isDismissible ?? this.isDismissible,
-      maxWidth: maxWidth ?? this.maxWidth,
-      margin: margin ?? this.margin,
-      padding: padding ?? this.padding,
-      borderRadius: borderRadius ?? this.borderRadius,
-      borderColor: borderColor ?? this.borderColor,
-      borderWidth: borderWidth ?? this.borderWidth,
-      backgroundColor: backgroundColor ?? this.backgroundColor,
-      leftBarIndicatorColor: leftBarIndicatorColor ?? this.leftBarIndicatorColor,
-      boxShadows: boxShadows ?? this.boxShadows,
-      backgroundGradient: backgroundGradient ?? this.backgroundGradient,
-      showProgressIndicator: showProgressIndicator ?? this.showProgressIndicator,
-      progressIndicatorController: progressIndicatorController ?? this.progressIndicatorController,
-      progressIndicatorBackgroundColor: progressIndicatorBackgroundColor ?? this.progressIndicatorBackgroundColor,
-      progressIndicatorValueColor: progressIndicatorValueColor ?? this.progressIndicatorValueColor,
-      flushbarPosition: flushbarPosition ?? this.flushbarPosition,
-      positionOffset: positionOffset ?? this.positionOffset,
-      dismissDirection: dismissDirection ?? this.dismissDirection,
-      flushbarStyle: flushbarStyle ?? this.flushbarStyle,
-      forwardAnimationCurve: forwardAnimationCurve ?? this.forwardAnimationCurve,
-      reverseAnimationCurve: reverseAnimationCurve ?? this.reverseAnimationCurve,
-      animationDuration: animationDuration ?? this.animationDuration,
-      barBlur: barBlur ?? this.barBlur,
-      blockBackgroundInteraction: blockBackgroundInteraction ?? this.blockBackgroundInteraction,
-      routeBlur: routeBlur ?? this.routeBlur,
-      routeColor: routeColor ?? this.routeColor,
-      userInputForm: userInputForm ?? this.userInputForm,
-      endOffset: endOffset ?? this.endOffset,
-      safeArea: safeArea ?? this.safeArea,
-      onStatusChanged: onStatusChanged ?? this.onStatusChanged,
-      textDirection: textDirection ?? this.textDirection,
-    );
-  }
 }
 
 class _FlushbarState<K extends Object?> extends State<Flushbar<K>> with TickerProviderStateMixin {
@@ -826,7 +732,7 @@ class _FlushbarState<K extends Object?> extends State<Flushbar<K>> with TickerPr
 
   Widget? _getMainActionButton() {
     if (widget.mainButton != null) {
-      return widget.mainButton;
+      return widget.mainButton!(widget);
     } else {
       return null;
     }
